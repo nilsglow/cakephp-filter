@@ -52,7 +52,7 @@ class FilterComponent extends Object {
  * @var boolean
  */
 	var $redirect = false;
-	
+
 /**
  * Used to tell whether time should be used in the filtering
  * @var boolean
@@ -66,8 +66,8 @@ class FilterComponent extends Object {
 
 /**
  * Before any Controller action
- * 
- * @param array settings['actions'] an array of the action(s) the filter is to be applied to, 
+ *
+ * @param array settings['actions'] an array of the action(s) the filter is to be applied to,
  * @param array settings['redirect'] is whether after filtering is completed it should redirect and put the filters in the url,
  * @param array settings['useTime'] is whether to filter date times with date in addition to time
  */
@@ -95,7 +95,7 @@ class FilterComponent extends Object {
 			$this->processAction($controller, $action);
 		}
 	}
-	
+
 	function processAction($controller, $controllerAction){
 		if ($controller->action == $controllerAction) {
 			$this->filter = $this->processFilters($controller);
@@ -120,7 +120,7 @@ class FilterComponent extends Object {
 
 /**
  * Builds up a selected datetime for the form helper
- * 
+ *
  * @param string $fieldname
  * @return null|string
  */
@@ -142,7 +142,7 @@ class FilterComponent extends Object {
 
 /**
  * Function which will change controller->data array
- * 
+ *
  * @param object $controller the class of the controller which call this component
  * @param array $whiteList contains list of allowed filter attributes
  * @access public
@@ -262,7 +262,7 @@ class FilterComponent extends Object {
 /**
  * function which will take care of the storing the filter data and loading after this from the Session
  * JF: modified to not htmlencode, caused problems with dates e.g. -05-
- * 
+ *
  * @param object $controller the class of the controller which call this component
  */
 	function _prepareFilter($controller) {
@@ -295,7 +295,7 @@ class FilterComponent extends Object {
 /**
  * function which will take care of filters from URL
  * JF: modified to not encode, caused problems with dates
- * 
+ *
  * @param object $controller the class of the controller which call this component
  */
 	function _checkParams($controller) {
@@ -330,7 +330,7 @@ class FilterComponent extends Object {
 
 /**
  * Prepares a date array for a MySQL WHERE clause
- * 
+ *
  * @author Jeffrey Marvin
  * @param array $date
  * @return string
