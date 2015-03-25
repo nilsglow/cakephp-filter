@@ -23,7 +23,7 @@ class FilterBehavior extends ModelBehavior {
 			$associated = $model->getAssociated();
 			
 			foreach ($queryData['conditions'] AS $key => $value) {
-				if(strpos($value, 'LIKE')){
+				if(@strpos($value, 'LIKE')){
 					$tmp = explode('LIKE', $value);
 					$field = $tmp['0'];
 					$search_value = 'LIKE ' . $tmp['1'];
