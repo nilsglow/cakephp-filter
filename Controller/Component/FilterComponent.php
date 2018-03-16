@@ -101,7 +101,7 @@ class FilterComponent extends Component {
 		}
 	}
 
-	function processAction(&$controller) {
+	function processAction(Controller $controller) {
 		if (isset($controller->data['reset']) || isset($controller->data['cancel'])) {
 			$redirectUrl = Router::url(array(
 				'controller' => Inflector::underscore($controller->name),
@@ -158,7 +158,7 @@ class FilterComponent extends Component {
  * @return void
  * @access public
  */
-	function processFilters(&$controller) {
+	function processFilters(Controller $controller) {
 		$this->__prepareFilter($controller);
 
 		// Set default filter values
@@ -300,7 +300,7 @@ class FilterComponent extends Component {
  * @param object $controller Reference to controller
  * @access private
  */
-	function __prepareFilter(&$controller) {
+	function __prepareFilter(Controller $controller) {
 		if (isset($controller->data)) {
 			$this->__data = $controller->data;
 			foreach ($this->__data as $model => $fields) {
@@ -330,7 +330,7 @@ class FilterComponent extends Component {
  * @return array Parsed params
  * @access private
  */
-	function __checkParams(&$controller) {
+	function __checkParams(Controller $controller) {
 		if (empty($controller->params['named'])) {
 			$filter = array();
 		}
