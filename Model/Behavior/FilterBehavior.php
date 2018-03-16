@@ -14,7 +14,7 @@ class FilterBehavior extends ModelBehavior {
 	 *
 	 * @return array Modified queryData array
 	 */
-	function beforeFind(&$model, $queryData) {
+	function beforeFind(Model $model, $queryData) {
 		$ret_queryData = $queryData;
 		
 		// See if we've got conditions
