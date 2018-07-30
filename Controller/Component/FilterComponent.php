@@ -80,6 +80,11 @@ class FilterComponent extends Component {
  **/
 	var $__data = array();
 
+	public function __construct(ComponentCollection $collection, $settings = array()) {
+		$settings = array_merge($this->defaultSettings, $settings);
+		parent::__construct($collection, $settings);
+	}
+
 /**
  * Initializes FilterComponent for use in the controller
  *
@@ -89,12 +94,12 @@ class FilterComponent extends Component {
  * @access public
  */
 	function initialize(Controller $controller) {
-		$settings = $this->defaultSettings;
-		$this->settings['actions'] = (empty($settings['actions'])) ? $this->settings['actions'] : (array) $settings['actions'];
+		// $settings = $this->settings;
+		// $this->settings['actions'] = (empty($settings['actions'])) ? $this->settings['actions'] : (array) $settings['actions'];
 
 		if (in_array($controller->action, $this->settings['actions'])) {
-			$settings['whitelist'] = (empty($settings['whitelist'])) ? array() : (array) $settings['whitelist'];
-			$this->settings = array_merge($this->settings, $settings);
+			// $settings['whitelist'] = (empty($settings['whitelist'])) ? array() : (array) $settings['whitelist'];
+			// $this->settings = array_merge($this->settings, $settings);
 			$this->paginate = array_merge($this->paginate, $controller->paginate);
 
 			$this->processAction($controller);
