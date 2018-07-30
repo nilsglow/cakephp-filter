@@ -89,12 +89,9 @@ class FilterComponent extends Component {
  * @access public
  */
 	function initialize(Controller $controller) {
-		$settings = $this->defaultSettings;
-		$this->settings['actions'] = (empty($settings['actions'])) ? $this->settings['actions'] : (array) $settings['actions'];
+		$this->settings = array_merge($this->defaultSettings, $this->settings);
 
 		if (in_array($controller->action, $this->settings['actions'])) {
-			$settings['whitelist'] = (empty($settings['whitelist'])) ? array() : (array) $settings['whitelist'];
-			$this->settings = array_merge($this->settings, $settings);
 			$this->paginate = array_merge($this->paginate, $controller->paginate);
 
 			$this->processAction($controller);
