@@ -198,7 +198,7 @@ class FilterComponent extends Component {
 					}
 				}
 				// Unset empty model data
-				if (count($fields) == 0) {
+				if (empty($fields)) {
 					unset($this->__data[$model]);
 				}
 			}
